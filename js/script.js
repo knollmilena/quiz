@@ -37,22 +37,24 @@ function createApp() {
   createQuize(form, h2, quizData[i]);
 
   form.addEventListener("click", (e) => {
-    if (timerId) {
-      clearTimeout(timerId);
-    }
-
-    timerId = setTimeout(() => {
-      form.innerHTML = "";
-      checked(e.target.name, e.target.id);
-      if (i < quizData.length - 1) {
-        i++;
-        progress.value = i;
-        createQuize(form, h2, quizData[i]);
-      } else {
-        quizContainer.innerHTML = "";
-        createResult();
+    if (e.target.tagName === "INPUT" || e.target.tagName === "LABEL") {
+      if (timerId) {
+        clearTimeout(timerId);
       }
-    }, 1000);
+
+      timerId = setTimeout(() => {
+        form.innerHTML = "";
+        checked(e.target.name, e.target.id);
+        if (i < quizData.length - 1) {
+          i++;
+          progress.value = i;
+          createQuize(form, h2, quizData[i]);
+        } else {
+          quizContainer.innerHTML = "";
+          createResult();
+        }
+      }, 1000);
+    }
   });
 
   const containerProgress = document.createElement("div");
