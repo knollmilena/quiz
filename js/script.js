@@ -202,6 +202,7 @@ function updateNumProgress(progressBar, tag, i) {
   const length = progressBar.offsetWidth;
   const position = (length / quizData.length) * i - 6;
 
+  tag.textContent = i;
   tag.style.left = `${position}px`;
 }
 
