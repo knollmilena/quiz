@@ -88,6 +88,10 @@
   word-wrap: break-word;
 }
 
+.quiz__progress {
+  position: relative;
+}
+
 .quiz__progress-bar {
   width: 100%;
   border: none;
@@ -157,4 +161,10 @@
 .quiz__answer-text {
   margin: 0;
   line-height: 140%;
+}
+
+.quiz__progress-number-upd {
+  position: absolute;
+  left: 0;
+  font-weight: 700;
 }

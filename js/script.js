@@ -34,6 +34,10 @@ function createApp() {
   let i = 0;
   let timerId;
 
+  const updNumProgress = document.createElement("div");
+  updNumProgress.classList.add("quiz__progress-number-upd");
+  updNumProgress.textContent = i;
+
   createQuize(form, h2, quizData[i]);
 
   form.addEventListener("click", (e) => {
@@ -48,6 +52,7 @@ function createApp() {
         if (i < quizData.length - 1) {
           i++;
           progress.value = i;
+          updateNumProgress(progress, updNumProgress, i);
           createQuize(form, h2, quizData[i]);
         } else {
           quizContainer.innerHTML = "";
@@ -79,6 +84,7 @@ function createApp() {
   containerNums.appendChild(spanEnd);
   containerProgress.appendChild(containerNums);
   containerProgress.appendChild(progress);
+  containerProgress.appendChild(updNumProgress);
   quizContainer.appendChild(h1);
   quizContainer.appendChild(section);
   quizContainer.appendChild(containerProgress);
@@ -190,6 +196,13 @@ function createResult() {
   quizContainer.appendChild(h1);
   quizContainer.appendChild(resultMess);
   quizContainer.appendChild(section);
+}
+
+function updateNumProgress(progressBar, tag, i) {
+  const length = progressBar.offsetWidth;
+  const position = (length / quizData.length) * i - 6;
+
+  tag.style.left = `${position}px`;
 }
 
 shuffleQuizData(quizData);
