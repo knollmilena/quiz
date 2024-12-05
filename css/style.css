@@ -205,6 +205,9 @@
 }
 
 @media (max-width: 600px) {
+  #quiz-container {
+    padding: 0 12px;
+  }
   #quiz__result-container {
     padding: 30px 0 80px;
   }
@@ -212,7 +215,7 @@
     padding: 15px;
   }
   .quiz__question-block {
-    width: 400px;
+    width: 360px;
   }
   .quiz__text {
     font-size: 18px;
